@@ -1,32 +1,48 @@
 # Chaptr
 
-> Your paid community, done right.
+Your paid community, done right. Messaging, events, gated content — no Discord chaos.
 
-A clean, fast home for subscribers. Messaging, events, gated content. No Discord chaos.
+**Status:** v0 skeleton — landing page + community builder preview. Full product not yet wired.
 
-## What it does
+**Landing:** https://chaptr.vercel.app
 
-- **Threaded chat** — Conversations you can actually follow, with reactions and search that works.
-- **Paid memberships** — Stripe-native from day one. Tiered access in one click.
-- **Live events** — Host Q&As and workshops without leaving the app.
+---
 
-## Why
+## Stack
 
-Creator. Part of a 20-product exploration of high-demand consumer and SMB markets.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-## Status
+## Run locally
 
-Landing page live. Product in planning.
+```bash
+pnpm install
+pnpm dev
+```
 
-- **Live**: https://mukundakatta.github.io/chaptr/
+Open http://localhost:3000.
 
-## Stack (when built)
+## Deploy
 
-- Next.js 16 (App Router)
-- Supabase for auth + data
-- Stripe for payments
-- Deployed on Vercel
+Push to `main` — Vercel picks it up automatically. No environment variables required.
 
-## Local preview
+## Routes
 
-Just open `index.html` in a browser — it is a static landing page with the Tailwind CDN.
+| Route | Description |
+|---|---|
+| `/` | Landing page (original copy + design preserved) |
+| `/try` | v0 community builder — name, tagline, price → mocked community home page |
+| `/api/waitlist` | `POST { email }` → forwards to waitlist-api-sigma |
+
+## What's next
+
+- Real-time threaded chat
+- Stripe-powered paid memberships
+- Live events and workshops
+- Auth + per-community member management
